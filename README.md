@@ -20,4 +20,4 @@ Here's the solution:
 
 No need to set SQL_SAFE_UPDATES to 0, I would really discourage it to do it that way. SAFE_UPDATES is by default on for a REASON. You can drive a car without safety belts and other things if you know what I mean ;) Just add in the WHERE clause a KEY-value that matches everything like a primary-key comparing to 0, so instead of writing:
 
-DELETE FROM user WHERE (user_name = 'user' AND id <> 0);
+> DELETE FROM user WHERE (user_name = 'user' AND id <> 0);
