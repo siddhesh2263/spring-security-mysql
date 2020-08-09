@@ -1,0 +1,19 @@
+use spring_app;
+
+SELECT * FROM user;
+
+INSERT INTO user(user_name, password, roles, active)
+VALUES('foo', 'foo', 'ROLE_ADMIN', 'false');
+
+SHOW CREATE TABLE user;
+
+ALTER TABLE user MODIFY active VARCHAR(20) NULL;
+
+
+
+MySQL error code: 1175 during UPDATE in MySQL Workbench
+(https://stackoverflow.com/questions/11448068/mysql-error-code-1175-during-update-in-mysql-workbench)
+
+No need to set SQL_SAFE_UPDATES to 0, I would really discourage it to do it that way. SAFE_UPDATES is by default on for a REASON. You can drive a car without safety belts and other things if you know what I mean ;) Just add in the WHERE clause a KEY-value that matches everything like a primary-key comparing to 0, so instead of writing:
+
+DELETE FROM user WHERE (user_name = 'user' AND id <> 0);
